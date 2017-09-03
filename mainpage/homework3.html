@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+<a href="homework3.pdf">报告文档</a>
+<a href="homework3.R">R语言程序</a>
+<a href="http://www.sciencedirect.com/science/article/pii/S0092867412015450">参考文献</a>
+<br>
+<p>此外在课件中的<a href="http://www.bioconductor.org/help/workflows/rnaseqGene/">RNA-seq分析流程</a>中发现一处可能需要改正的代码<br>
+<pre>
+#绘制聚类图时
+......
+mat  <- assay(rld)[ topVarGenes, ]
+mat  <- mat - rowMeans(mat)
+anno <- as.data.frame(colData(rld)[, c("cell","dex")])
+<p  style="color:red">rownames(anno) <- colnames(mat)  #需要添加的代码</p>
+pheatmap(mat, annotation_col = anno)
+......
+</pre>
+</body>
+</html>
